@@ -1,0 +1,17 @@
+#GolfersLL makefile
+
+GolfersList:GolfersLL.o GolfPlayer.o listtools.o
+	g++ -std=c++11 GolfersLL.o GolfPlayer.o listtools.o -o GolfersList
+
+GolfersLL.o:GolfersLL.cpp GolfPlayer.h listtools.h
+	g++ -c -std=c++11 GolfersLL.cpp
+
+GolfPlayer.o: GolfPlayer.cpp GolfPlayer.h
+	g++ -c -std=c++11 GolfPlayer.cpp
+
+listtools.o: listtools.cpp listtools.h
+	g++ -c -std=c++11 listtools.cpp
+	
+clean:
+	rm -rf *.o GolfersLL
+
